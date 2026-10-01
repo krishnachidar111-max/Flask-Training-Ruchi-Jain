@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+
+    <form action="{{url_for('calculator')}}" method="post">
+        <label>Number A: </label>
+        <input type="number" name="a" required>
+        <br><br>
+
+        <label>Number B: </label>
+        <input type="number" name="b" required>
+        <br><br>
+
+        <label>Operation: </label>
+        <button type="submit" name="operation" value="+">+Add</button>
+        <button type="submit" name="operation" value="-">-Sub</button>
+        <button type="submit" name="operation" value="*">*Mul</button>
+    </form>
+
+    {% if result is not none %}
+    <hr>
+    <h2>Result = {{ result }}</h2>
+    {% endif %}
+
+</body>
+</html>

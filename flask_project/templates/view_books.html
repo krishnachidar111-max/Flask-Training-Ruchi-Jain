@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Book Details / List Page - Library Management System{% endblock %}
+
+{% block content %}
+<div class="center-container">
+    <div class="window-card window-card-lg">
+        <div class="card-top-bar">
+            Book Details / List Page (view_books.html)
+        </div>
+        <div class="card-body">
+            <h2 style="text-align: center; font-size: 1.35rem; font-weight: 700; color: #0f172a; margin-bottom: 1.5rem;">
+                Book Details / List Page
+            </h2>
+
+            <div style="overflow-x: auto;">
+                <table class="infographic-table">
+                    <thead>
+                        <tr>
+                            <th>Book ID</th>
+                            <th>Book Name</th>
+                            <th>Book Number</th>
+                            <th>Name of Student</th>
+                            <th>Issue Date</th>
+                            <th>Due Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for book in books %}
+                        <tr>
+                            <td><strong>{{ book.book_id or book.id }}</strong></td>
+                            <td>{{ book.book_name }}</td>
+                            <td>{{ book.book_number }}</td>
+                            <td>{{ book.student_name }}</td>
+                            <td>{{ book.issue_date }}</td>
+                            <td>{{ book.due_date or book.return_date }}</td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="6" style="padding: 2rem; color: #64748b;">No books found in the database.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="margin-top: 2rem; text-align: left;">
+                <a href="{{ url_for('dashboard') }}" class="btn btn-blue btn-lg" style="min-width: 170px;">
+                    Back to Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

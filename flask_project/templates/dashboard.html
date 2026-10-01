@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard Page - Library Management System{% endblock %}
+
+{% block content %}
+<div class="center-container">
+    <div class="window-card window-card-md">
+        <div class="card-top-bar">
+            Dashboard Page (dashboard.html)
+        </div>
+        <div class="card-body" style="text-align: center; padding: 2.5rem 2rem;">
+            <!-- Library Dashboard Banner with Home Icon matching image -->
+            <div class="dash-banner">
+                <span style="font-size: 1.75rem;">🏠</span>
+                <span class="dash-banner-title">Library Dashboard</span>
+            </div>
+
+            <!-- Action Buttons Stack Matching Image Exactly -->
+            <div class="dash-actions-stack">
+                <a href="{{ url_for('issue_book') }}" class="btn btn-green btn-block btn-lg" id="btnIssueBook">
+                    <span>+ Submit (Issue Book)</span>
+                </a>
+                <a href="{{ url_for('view_books') }}" class="btn btn-purple btn-block btn-lg" id="btnViewBook">
+                    <span>View Book</span>
+                </a>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <a href="{{ url_for('logout') }}" style="color: #0284c7; text-decoration: none; font-weight: 600; font-size: 0.95rem;">
+                    Logout
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

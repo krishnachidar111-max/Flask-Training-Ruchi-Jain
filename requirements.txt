@@ -1,0 +1,6 @@
+Flask
+SQLAlchemy
+bcrypt
+Flask-SQLAlchemy
+mysqlclient
+pymysql

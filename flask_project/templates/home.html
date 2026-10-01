@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Home Page - Library Management System{% endblock %}
+
+{% block content %}
+<div class="center-container">
+    <div class="window-card window-card-md">
+        <div class="card-top-bar">
+            Home Page (home.html)
+        </div>
+        <div class="card-body" style="text-align: center; padding: 3rem 2rem;">
+            <div class="hero-book-stack">📚</div>
+            <h1 class="hero-title">Library Management<br>System</h1>
+            
+            <div class="hero-button-group">
+                <a href="{{ url_for('signup') }}" class="btn btn-blue btn-lg" style="min-width: 140px;">
+                    Sign Up
+                </a>
+                <a href="{{ url_for('login') }}" class="btn btn-purple btn-lg" style="min-width: 140px;">
+                    Login
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

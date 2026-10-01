@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Book Issued Successfully Page - Library Management System{% endblock %}
+
+{% block content %}
+<div class="center-container">
+    <div class="window-card window-card-md">
+        <div class="card-top-bar">
+            Book Issued Successfully Page (success.html)
+        </div>
+        <div class="card-body" style="text-align: center; padding: 2.5rem 2rem;">
+            <!-- Success Green Pill Banner -->
+            <div class="success-pill-banner">
+                <span class="success-check-icon">✔</span>
+                <span>Book Issued Successfully!</span>
+            </div>
+
+            <!-- Details List Matching Image Exactly -->
+            <div class="success-details-list">
+                <div class="success-detail-row">
+                    <span class="success-detail-label">Book Name</span>
+                    <span class="success-detail-colon">:</span>
+                    <span class="success-detail-val">{{ book.book_name }}</span>
+                </div>
+                <div class="success-detail-row">
+                    <span class="success-detail-label">Student Name</span>
+                    <span class="success-detail-colon">:</span>
+                    <span class="success-detail-val">{{ book.student_name }}</span>
+                </div>
+                <div class="success-detail-row">
+                    <span class="success-detail-label">Issue Date</span>
+                    <span class="success-detail-colon">:</span>
+                    <span class="success-detail-val">{{ book.issue_date }}</span>
+                </div>
+            </div>
+
+            <!-- Two Action Buttons Matching Image Exactly -->
+            <div style="display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
+                <a href="{{ url_for('dashboard') }}" class="btn btn-blue btn-lg" style="min-width: 170px;" id="btnBackDashboard">
+                    Back to Dashboard
+                </a>
+                <a href="{{ url_for('view_books') }}" class="btn btn-purple btn-lg" style="min-width: 170px;" id="btnViewBook">
+                    View Book
+                </a>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <a href="{{ url_for('logout') }}" style="color: #64748b; font-size: 0.9rem; text-decoration: none;">
+                    Logout / Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

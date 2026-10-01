@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Library Management System{% endblock %}</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}" class="nav-brand">
+                <span class="brand-icon">📚</span>
+                <span>Library Management System</span>
+            </a>
+            <ul class="nav-links">
+                <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+                {% if session.get('user_id') %}
+                    <a href="{{ url_for('dashboard') }}" class="nav-link">Dashboard</a>
+                    <a href="{{ url_for('issue_book') }}" class="nav-link">Issue Book</a>
+                    <a href="{{ url_for('view_books') }}" class="nav-link">View Books</a>
+                    <a href="{{ url_for('logout') }}" class="btn btn-sm btn-purple">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('signup') }}" class="btn btn-sm btn-blue">Sign Up</a>
+                    <a href="{{ url_for('login') }}" class="btn btn-sm btn-purple">Login</a>
+                {% endif %}
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="alert-container">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category if category != 'error' else 'danger' }}">
+                            {% if category == 'success' %}
+                                <span>✅</span>
+                            {% elif category in ['danger', 'error'] %}
+                                <span>⚠️</span>
+                            {% else %}
+                                <span>ℹ️</span>
+                            {% endif %}
+                            <span>{{ message }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Library Management System &bull; Based on Architectural Workflow Diagram</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

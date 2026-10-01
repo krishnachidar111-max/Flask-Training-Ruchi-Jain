@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up Page - Library Management System{% endblock %}
+
+{% block content %}
+<div class="center-container">
+    <div class="window-card window-card-sm">
+        <div class="card-top-bar">
+            Sign Up Page (signup.html)
+        </div>
+        <div class="card-body">
+            <form action="{{ url_for('signup') }}" method="POST">
+                <div class="form-group">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter name" required autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Enter username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required>
+                </div>
+
+                <button type="submit" class="btn btn-blue btn-block btn-lg" style="margin-top: 1.5rem;">
+                    Create Account
+                </button>
+
+                <div class="form-footer">
+                    <a href="{{ url_for('login') }}">Already have an account? Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Calculate Average Marks
+    </h1>
+
+    <form action=" {{url_for('calculate')}} " method="post">
+        <div>
+            <label for="maths" >Maths</label>
+            <input type="text" name="maths" placeholder="Enter Maths Marks">
+            <br>
+        </div>
+        <br>
+        <div>
+            <label for="physics">Physics</label>
+            <input type="text" name="physics" placeholder="Enter Physics Marks">
+            <br>
+        </div>
+        <br>
+        <div>
+            <label for="chemistry">Chemistry</label>
+            <input type="text" name="chemistry" placeholder="Enter Chemistry Marks">
+            <br>
+        </div>
+        <br>
+        <div style="margin-top: 10px;">
+            <button type="submit">Calculate Marks</button>    
+        </div>
+    </form>
+
+    {% if flag %}
+    <hr>
+    <h2>Results</h2>
+    <p><strong>Total Marks:</strong> {{ total }}</p>
+    <p><strong>Average Marks:</strong> {{ "%.2f" | format(average) }}</p>
+    {% if flag == 'pass' %}
+        <p style="color: green; font-size: 1.2em;"><strong>✅ Result: PASS</strong></p>
+    {% else %}
+        <p style="color: red; font-size: 1.2em;"><strong>❌ Result: FAIL</strong></p>
+    {% endif %}
+    {% endif %}
+</body>
+</html>
